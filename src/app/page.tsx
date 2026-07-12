@@ -1,65 +1,465 @@
-import Image from "next/image";
+const navLinks = [
+  { label: "Work", href: "#work" },
+  { label: "Capabilities", href: "#capabilities" },
+  { label: "Process", href: "#process" },
+  { label: "About", href: "#about" },
+];
+
+const selectedWork = [
+  {
+    name: "PJB Fit",
+    category: "Fitness and Wellness",
+    description:
+      "A modern fitness experience designed to make planning, tracking, and personal progress feel simple and motivating.",
+    status: "In Development",
+    variant: "fitness",
+  },
+  {
+    name: "Metro Digital Pick Platform",
+    category: "Business Operations",
+    description:
+      "A digital platform designed to modernize a complex, paper-based employee work-selection process.",
+    status: "Active Development",
+    variant: "operations",
+  },
+  {
+    name: "Cloud Storage Application",
+    category: "Mobile and Cloud",
+    description:
+      "A secure mobile-first storage product for organizing, protecting, and sharing important files.",
+    status: "In Development",
+    variant: "cloud",
+  },
+  {
+    name: "To-Dos & Notes",
+    category: "Productivity",
+    description:
+      "A mobile productivity experience that connects calendars, tasks, and notes in one organized workspace.",
+    status: "Mobile Application",
+    variant: "productivity",
+  },
+  {
+    name: "AllSports GM",
+    category: "Sports and Entertainment",
+    description:
+      "A multi-sport franchise management experience built around strategy, decision-making, and immersive simulation.",
+    status: "In Development",
+    variant: "sports",
+  },
+];
+
+const capabilities = [
+  {
+    title: "Mobile Applications",
+    description:
+      "Polished mobile-first experiences shaped around clear workflows, useful features, and everyday usability.",
+  },
+  {
+    title: "Web Platforms",
+    description:
+      "Responsive web products and front-facing platforms built with modern architecture and strong user experience.",
+  },
+  {
+    title: "Business Software",
+    description:
+      "Practical tools for replacing manual processes, organizing operational data, and supporting real teams.",
+  },
+  {
+    title: "Product Design",
+    description:
+      "Thoughtful interface systems, product flows, and interaction details that make complex ideas approachable.",
+  },
+  {
+    title: "AI-Assisted Experiences",
+    description:
+      "Focused AI-assisted features that support useful outcomes without turning the product into hype.",
+  },
+  {
+    title: "Interactive Digital Products",
+    description:
+      "Engaging product concepts, simulations, and digital experiences designed around clear user value.",
+  },
+];
+
+const principles = [
+  {
+    number: "01",
+    title: "Solve a meaningful problem",
+    description: "Build around a real need rather than technology for its own sake.",
+  },
+  {
+    number: "02",
+    title: "Make the experience intuitive",
+    description:
+      "Handle complexity thoughtfully so the product remains clear and approachable.",
+  },
+  {
+    number: "03",
+    title: "Build with care",
+    description:
+      "Treat design quality, clean engineering, and reliability as essential.",
+  },
+  {
+    number: "04",
+    title: "Improve continuously",
+    description:
+      "Test, learn, refine, and allow every product to keep evolving.",
+  },
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Discover",
+    description: "Understand the idea, audience, and real problem.",
+  },
+  {
+    number: "02",
+    title: "Define",
+    description: "Shape the product vision, priorities, and experience.",
+  },
+  {
+    number: "03",
+    title: "Design",
+    description: "Create clear, thoughtful, and polished interfaces.",
+  },
+  {
+    number: "04",
+    title: "Build",
+    description: "Turn the approved direction into reliable software.",
+  },
+  {
+    number: "05",
+    title: "Improve",
+    description: "Test, learn, refine, and continue evolving.",
+  },
+];
+
+const focusAreas = [
+  "Product-Focused",
+  "Practical Innovation",
+  "Thoughtful Design",
+  "Continuous Improvement",
+];
+
+function BrandMark({ stacked = false }: { stacked?: boolean }) {
+  return (
+    <div className={stacked ? "brand-stack" : "brand-inline"}>
+      <span className="brand-wordmark" aria-label="PJBStudios">
+        <span>PJB</span>
+        <span>Studios</span>
+      </span>
+      {stacked ? <span className="brand-tagline">Ideas Into Reality.</span> : null}
+    </div>
+  );
+}
+
+function SectionHeader({
+  id,
+  eyebrow,
+  title,
+  body,
+}: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  body?: string;
+}) {
+  return (
+    <div className="section-header">
+      <p className="eyebrow">{eyebrow}</p>
+      <h2 id={id}>{title}</h2>
+      {body ? <p>{body}</p> : null}
+    </div>
+  );
+}
+
+function ProductPreview({ variant }: { variant: string }) {
+  return (
+    <div className={`product-preview product-preview-${variant}`} aria-hidden="true">
+      <div className="preview-orbit" />
+      <div className="preview-panel preview-panel-primary">
+        <div />
+        <div />
+        <div />
+      </div>
+      <div className="preview-panel preview-panel-secondary">
+        <span />
+        <span />
+      </div>
+      <div className="preview-chip" />
+    </div>
+  );
+}
+
+function HeroVisual() {
+  return (
+    <div className="hero-visual" aria-hidden="true">
+      <div className="hero-device hero-device-main">
+        <div className="hero-device-bar" />
+        <div className="hero-chart">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="hero-lines">
+          <i />
+          <i />
+          <i />
+        </div>
+      </div>
+      <div className="hero-device hero-device-side">
+        <div className="hero-device-bar" />
+        <div className="hero-grid">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+      <div className="hero-badge">
+        <span>Build</span>
+        <strong>01</strong>
+      </div>
+    </div>
+  );
+}
+
+function Navigation() {
+  return (
+    <header className="site-header">
+      <nav className="nav-shell" aria-label="Primary navigation">
+        <a className="nav-brand" href="#top" aria-label="PJBStudios home">
+          <BrandMark />
+        </a>
+        <div className="nav-links" aria-label="Homepage sections">
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <a className="nav-cta" href="#contact">
+          Start a Conversation
+        </a>
+        <details className="mobile-nav">
+          <summary aria-label="Toggle navigation menu">
+            <span />
+            <span />
+            <span />
+          </summary>
+          <div className="mobile-nav-panel">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href}>
+                {link.label}
+              </a>
+            ))}
+            <a href="#contact">Start a Conversation</a>
+          </div>
+        </details>
+      </nav>
+    </header>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div id="top" className="site-page">
+      <Navigation />
+      <main>
+        <section className="hero-section" aria-labelledby="hero-heading">
+          <div className="container hero-grid-layout">
+            <div className="hero-copy">
+              <p className="eyebrow">Ideas Into Reality.</p>
+              <h1 id="hero-heading">
+                Turning thoughtful ideas into software people love to use.
+              </h1>
+              <p>
+                PJBStudios designs and builds polished mobile apps, web platforms,
+                and digital products created to solve real problems and deliver
+                exceptional experiences.
+              </p>
+              <div className="hero-actions" aria-label="Hero actions">
+                <a className="button button-primary" href="#work">
+                  Explore Our Work
+                </a>
+                <a className="button button-secondary" href="#capabilities">
+                  What We Build
+                </a>
+              </div>
+            </div>
+            <HeroVisual />
+          </div>
+        </section>
+
+        <section id="work" className="page-section" aria-labelledby="work-heading">
+          <div className="container">
+            <SectionHeader
+              id="work-heading"
+              eyebrow="Selected Work"
+              title="Products shaped around practical, real-world use."
+              body="A focused look at products and platforms that may appear publicly as PJBStudios continues to grow."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <div className="work-grid">
+              {selectedWork.map((project) => (
+                <article className="work-card" key={project.name}>
+                  <ProductPreview variant={project.variant} />
+                  <div className="work-card-content">
+                    <div>
+                      <p className="card-kicker">{project.category}</p>
+                      <h3>{project.name}</h3>
+                    </div>
+                    <p>{project.description}</p>
+                    <span>{project.status}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="capabilities"
+          className="page-section section-muted"
+          aria-labelledby="capabilities-heading"
+        >
+          <div className="container">
+            <SectionHeader
+              id="capabilities-heading"
+              eyebrow="Capabilities"
+              title="A studio built for useful digital products."
+              body="PJBStudios combines product thinking, visual clarity, and practical engineering across focused software experiences."
+            />
+            <div className="capability-grid">
+              {capabilities.map((capability) => (
+                <article className="capability-card" key={capability.title}>
+                  <span className="capability-icon" aria-hidden="true" />
+                  <h3>{capability.title}</h3>
+                  <p>{capability.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="page-section purpose-section" aria-labelledby="purpose-heading">
+          <div className="container purpose-grid">
+            <div>
+              <p className="eyebrow">Built with Purpose</p>
+              <h2 id="purpose-heading">
+                Every product begins with a real-world challenge.
+              </h2>
+              <p>
+                We combine thoughtful design, practical technology, and continuous
+                improvement to turn promising ideas into useful digital experiences.
+              </p>
+            </div>
+            <div className="purpose-panel" aria-hidden="true">
+              <div className="purpose-card">
+                <span />
+                <strong>Ideas become products.</strong>
+              </div>
+            </div>
+            <div className="principle-list">
+              {principles.map((principle) => (
+                <article className="principle-item" key={principle.number}>
+                  <span>{principle.number}</span>
+                  <div>
+                    <h3>{principle.title}</h3>
+                    <p>{principle.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="process" className="page-section" aria-labelledby="process-heading">
+          <div className="container">
+            <SectionHeader
+              id="process-heading"
+              eyebrow="From Idea to Reality"
+              title="A clear path from concept to polished software."
+            />
+            <div className="process-grid">
+              {processSteps.map((step) => (
+                <article className="process-step" key={step.number}>
+                  <span>{step.number}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="page-section about-section" aria-labelledby="about-heading">
+          <div className="container about-grid">
+            <div>
+              <p className="eyebrow">About the Studio</p>
+              <h2 id="about-heading">
+                A growing studio built around ambitious ideas.
+              </h2>
+            </div>
+            <div className="about-copy">
+              <p>
+                PJBStudios is a growing software and creative technology studio
+                focused on transforming thoughtful ideas into polished digital
+                products. From productivity tools and fitness experiences to
+                business platforms, entertainment, and cloud technology, every
+                project begins with a real problem worth solving.
+              </p>
+              <div className="focus-grid" aria-label="PJBStudios focus areas">
+                {focusAreas.map((area) => (
+                  <span key={area}>{area}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="page-section final-cta" aria-labelledby="cta-heading">
+          <div className="container cta-panel">
+            <p className="eyebrow">Start a Conversation</p>
+            <h2 id="cta-heading">Every great product begins with an idea.</h2>
+            <div className="idea-sequence">
+              <span>Ideas become sketches.</span>
+              <span>Sketches become prototypes.</span>
+              <span>Prototypes become software.</span>
+              <span>Software becomes reality.</span>
+            </div>
+            <BrandMark stacked />
+            <a className="button button-primary" href="#contact">
+              Start a Conversation
+            </a>
+          </div>
+        </section>
       </main>
+
+      <footer className="site-footer">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <BrandMark stacked />
+            <p>
+              PJBStudios creates thoughtful software, digital products, and
+              experiences designed to solve real-world problems.
+            </p>
+          </div>
+          <nav aria-label="Footer navigation">
+            <a href="#work">Work</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#process">Process</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <nav aria-label="Legal links">
+            <a href="#top">Privacy Policy placeholder</a>
+            <a href="#top">Terms of Service placeholder</a>
+          </nav>
+          <p className="copyright">&copy; PJBStudios. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }

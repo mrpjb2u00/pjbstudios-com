@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PJBStudios.com
 
-## Getting Started
+PJBStudios.com is the public website for PJBStudios, an emerging software and creative technology studio building practical mobile applications, web applications, business platforms, interactive products, and AI-assisted digital experiences.
 
-First, run the development server:
+The first release is intended to be a polished, responsive, front-facing marketing website that explains what PJBStudios is building, introduces the studio's capabilities, showcases selected products and projects, establishes credibility, and gives visitors a simple way to contact or follow PJBStudios.
+
+## Current Status
+
+The project is in initial setup and documentation. The generated Next.js starter interface has not been redesigned or replaced yet. The visual design direction is not finalized and will be informed by a design created in Stitch.
+
+## Technology Stack
+
+- Next.js 16 App Router
+- TypeScript
+- Tailwind CSS
+- ESLint
+- npm
+- `src` directory
+- Import alias `@/*`
+- Vercel deployment target
+
+## Local Setup
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the local development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the local URL shown in the terminal, usually `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Validation Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run lint checks:
 
-## Learn More
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run a production build:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## High-Level Folder Structure
 
-## Deploy on Vercel
+```text
+pjbstudios-com/
+  docs/
+    brand-foundation.md
+  public/
+  src/
+    app/
+  AGENTS.md
+  README.md
+  package.json
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment Target
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The intended deployment target is Vercel, with a future connection to the PJBStudios.com domain. Deployment, domain connection, remote repository creation, and publishing require explicit approval.
+
+## Agent Instructions
+
+Detailed guidance for Codex and other coding agents is in `AGENTS.md`.
+
+## Brand Foundation
+
+The initial positioning, goals, audience, content rules, visual direction, and unresolved decisions are documented in `docs/brand-foundation.md`.

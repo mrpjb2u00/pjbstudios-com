@@ -5,14 +5,28 @@ const navLinks = [
   { label: "About", href: "#about" },
 ];
 
-const selectedWork = [
+type SelectedWork = {
+  name: string;
+  category: string;
+  tagline?: string;
+  description: string;
+  status: string;
+  technologies?: string[];
+  href?: string;
+  variant: string;
+};
+
+const selectedWork: SelectedWork[] = [
   {
-    name: "PJB Fit",
-    category: "Fitness and Wellness",
+    name: "PJB Daily",
+    category: "Productivity",
+    tagline: "Everything you need to organize your day.",
     description:
-      "A modern fitness experience designed to make planning, tracking, and personal progress feel simple and motivating.",
-    status: "In Development",
-    variant: "fitness",
+      "PJB Daily combines calendar planning, tasks, notes, recurring reminders, and daily progress tracking into one beautifully designed productivity experience.",
+    status: "Available on Google Play",
+    technologies: ["React Native", "Expo", "TypeScript", "Supabase"],
+    href: "/projects/pjb-daily",
+    variant: "productivity",
   },
   {
     name: "Metro Digital Pick Platform",
@@ -309,9 +323,27 @@ export default function Home() {
                     <div>
                       <p className="card-kicker">{project.category}</p>
                       <h3>{project.name}</h3>
+                      {project.tagline ? (
+                        <p className="work-tagline">{project.tagline}</p>
+                      ) : null}
                     </div>
                     <p>{project.description}</p>
+                    {project.technologies ? (
+                      <div
+                        className="work-tech-list"
+                        aria-label={`${project.name} technology stack`}
+                      >
+                        {project.technologies.map((technology) => (
+                          <span key={technology}>{technology}</span>
+                        ))}
+                      </div>
+                    ) : null}
                     <span>{project.status}</span>
+                    {project.href ? (
+                      <a className="work-card-link" href={project.href}>
+                        Learn More
+                      </a>
+                    ) : null}
                   </div>
                 </article>
               ))}

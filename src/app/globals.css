@@ -1365,6 +1365,7 @@ a {
 
 .work-tech-list {
   display: flex;
+  align-self: start;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
@@ -1378,6 +1379,7 @@ a {
   font-size: 0.78rem;
   font-weight: 650;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .work-card-content > span {

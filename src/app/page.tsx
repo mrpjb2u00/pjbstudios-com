@@ -10,9 +10,11 @@ type SelectedWork = {
   category: string;
   tagline?: string;
   description: string;
+  philosophy?: string;
   status: string;
   technologies?: string[];
   href?: string;
+  ctaLabel?: string;
   variant: string;
 };
 
@@ -29,12 +31,17 @@ const selectedWork: SelectedWork[] = [
     variant: "productivity",
   },
   {
-    name: "Metro Digital Pick Platform",
-    category: "Business Operations",
+    name: "PJBCrewLink",
+    category: "Workforce Platform",
+    tagline: "One portal. Every shift.",
     description:
-      "A digital platform designed to modernize a complex, paper-based employee work-selection process.",
-    status: "Active Development",
-    variant: "operations",
+      "A modern workforce platform designed to simplify the daily experience for employees by bringing schedules, work selection, communication, time-off requests, company documents, and workplace tools together in one secure, intuitive portal. Built for organizations that want to replace outdated processes with a modern digital workforce experience.",
+    philosophy: "Work shouldn't be harder than the job itself.",
+    status: "Planning & Design",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
+    href: "/projects/pjbcrewlink",
+    ctaLabel: "Explore the Vision",
+    variant: "crewlink",
   },
   {
     name: "Cloud Storage Application",
@@ -189,6 +196,61 @@ function SectionHeader({
 }
 
 function ProductPreview({ variant }: { variant: string }) {
+  if (variant === "crewlink") {
+    return (
+      <div
+        className="product-preview product-preview-crewlink"
+        aria-hidden="true"
+      >
+        <div className="crewlink-showcase-light" />
+        <div className="crewlink-monitor">
+          <div className="crewlink-monitor-screen">
+            <div className="crewlink-monitor-topbar">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="crewlink-monitor-grid">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="crewlink-monitor-main">
+              <i />
+              <i />
+              <i />
+            </div>
+            <div className="crewlink-monitor-side">
+              <span />
+              <span />
+            </div>
+          </div>
+          <div className="crewlink-monitor-stand" />
+        </div>
+        <div className="crewlink-phone">
+          <div className="crewlink-phone-speaker" />
+          <div className="crewlink-phone-card" />
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="crewlink-float-card crewlink-float-card-a">
+          <span />
+          <i />
+        </div>
+        <div className="crewlink-float-card crewlink-float-card-b">
+          <span />
+          <i />
+        </div>
+        <div className="crewlink-float-card crewlink-float-card-c">
+          <span />
+          <i />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`product-preview product-preview-${variant}`} aria-hidden="true">
       <div className="preview-orbit" />
@@ -328,6 +390,9 @@ export default function Home() {
                       ) : null}
                     </div>
                     <p>{project.description}</p>
+                    {project.philosophy ? (
+                      <p className="work-philosophy">{project.philosophy}</p>
+                    ) : null}
                     {project.technologies ? (
                       <div
                         className="work-tech-list"
@@ -341,8 +406,12 @@ export default function Home() {
                     <span>{project.status}</span>
                     {project.href ? (
                       <a className="work-card-link" href={project.href}>
-                        Learn More
+                        {project.ctaLabel ?? "Learn More"}
                       </a>
+                    ) : project.ctaLabel ? (
+                      <button className="work-card-link" type="button" disabled>
+                        {project.ctaLabel}
+                      </button>
                     ) : null}
                   </div>
                 </article>

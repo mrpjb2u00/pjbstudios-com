@@ -44,12 +44,16 @@ const selectedWork: SelectedWork[] = [
     variant: "crewlink",
   },
   {
-    name: "Cloud Storage Application",
-    category: "Mobile and Cloud",
+    name: "PJB Fit",
+    category: "AI-Assisted Fitness Coaching",
+    tagline: "Progress over perfection.",
     description:
-      "A secure mobile-first storage product for organizing, protecting, and sharing important files.",
-    status: "In Development",
-    variant: "cloud",
+      "A premium fitness application in active development that combines guided workouts, supportive coaching, and intelligent progress tracking to help users build healthier habits through consistency rather than perfection.",
+    status: "Active Development",
+    technologies: ["Expo", "React Native", "TypeScript", "Expo Router", "Supabase Planned"],
+    href: "/projects/pjb-fit",
+    ctaLabel: "Explore the Project",
+    variant: "fit",
   },
   {
     name: "To-Dos & Notes",
@@ -196,6 +200,39 @@ function SectionHeader({
 }
 
 function ProductPreview({ variant }: { variant: string }) {
+  if (variant === "fit") {
+    return (
+      <div className="product-preview product-preview-fit" aria-hidden="true">
+        <div className="fit-preview-rings">
+          <span />
+          <span />
+        </div>
+        <div className="fit-preview-phone">
+          <div className="fit-preview-speaker" />
+          <div className="fit-preview-progress" />
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="fit-preview-card fit-preview-card-primary">
+          <i />
+          <i />
+          <i />
+        </div>
+        <div className="fit-preview-card fit-preview-card-secondary">
+          <span />
+          <span />
+        </div>
+        <div className="fit-preview-pulse">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
+      </div>
+    );
+  }
+
   if (variant === "crewlink") {
     return (
       <div

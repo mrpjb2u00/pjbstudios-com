@@ -3441,6 +3441,733 @@ a {
   }
 }
 
+.more-projects-section {
+  border-block: 1px solid rgba(255, 255, 255, 0.055);
+  padding: clamp(3.5rem, 7vw, 5.75rem) 0;
+  background:
+    linear-gradient(90deg, rgba(0, 102, 255, 0.04) 1px, transparent 1px),
+    rgba(255, 255, 255, 0.012);
+  background-size: 72px 72px, auto;
+}
+
+.more-projects-layout {
+  display: grid;
+  gap: 2.25rem;
+}
+
+.more-projects-layout h2 {
+  max-width: 600px;
+  margin: 0.8rem 0 0;
+  color: var(--text-primary);
+  font-size: 2.2rem;
+  line-height: 1.05;
+}
+
+.more-projects-list {
+  display: grid;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.more-project-item {
+  display: grid;
+  min-height: 5rem;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1rem 0;
+  animation: fade-up 520ms var(--motion-ease) both;
+}
+
+.more-project-item > span {
+  color: var(--electric-blue-soft);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.more-project-item h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.more-project-item p {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.more-project-item > i {
+  position: relative;
+  width: clamp(2.5rem, 7vw, 6rem);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 102, 255, 0.65), transparent);
+}
+
+.more-project-item > i::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 50%;
+  content: "";
+  background: var(--electric-blue);
+  box-shadow: var(--glow-soft);
+  transform: translateY(-50%);
+}
+
+.vault-page {
+  --vault-emerald: #35e58c;
+  --vault-emerald-soft: #8df5bd;
+  --vault-emerald-muted: rgba(53, 229, 140, 0.12);
+}
+
+.vault-page .product-hero::before {
+  background: radial-gradient(circle, rgba(53, 229, 140, 0.18), transparent 64%);
+}
+
+.vault-page .eyebrow,
+.vault-page .product-supporting {
+  color: var(--vault-emerald-soft);
+}
+
+.vault-page .product-meta span:first-child {
+  border-color: rgba(53, 229, 140, 0.42);
+  background: rgba(53, 229, 140, 0.09);
+  color: var(--vault-emerald-soft);
+}
+
+.vault-button-primary {
+  border-color: rgba(141, 245, 189, 0.42);
+  background: linear-gradient(135deg, #22c978, #70efa9);
+  color: #07110c;
+  box-shadow: 0 12px 32px rgba(34, 201, 120, 0.18);
+}
+
+.vault-button-primary:hover {
+  border-color: rgba(181, 255, 215, 0.65);
+  box-shadow: 0 16px 38px rgba(34, 201, 120, 0.25);
+}
+
+.vault-artwork-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 52% 48%, rgba(53, 229, 140, 0.2), transparent 15rem),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    #0b100e;
+  background-size: auto, 48px 48px, 48px 48px, auto;
+}
+
+.vault-artwork-glow {
+  position: absolute;
+  inset: 15% 12% 10%;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(53, 229, 140, 0.12);
+  filter: blur(72px);
+}
+
+.vault-window {
+  position: relative;
+  z-index: 1;
+  width: min(82%, 31rem);
+  min-height: 19rem;
+  overflow: hidden;
+  border: 1px solid rgba(141, 245, 189, 0.24);
+  border-radius: var(--radius-md);
+  background: #111713;
+  box-shadow:
+    0 28px 68px rgba(0, 0, 0, 0.48),
+    0 0 42px rgba(53, 229, 140, 0.1);
+  transform: perspective(900px) rotateX(2deg) rotateY(-4deg);
+}
+
+.vault-window-bar {
+  display: flex;
+  min-height: 2.9rem;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0.7rem 0.85rem;
+}
+
+.vault-window-bar > div {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.vault-window-bar i,
+.vault-window-rail i {
+  display: block;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.vault-window-bar i:first-child,
+.vault-window-rail i:first-child {
+  background: var(--vault-emerald);
+  box-shadow: 0 0 14px rgba(53, 229, 140, 0.45);
+}
+
+.vault-window-bar > span {
+  width: 4.5rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.vault-window-layout {
+  display: grid;
+  min-height: 16rem;
+  grid-template-columns: 3.2rem 1fr;
+}
+
+.vault-window-rail {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 1.15rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.065);
+  padding-top: 1.2rem;
+}
+
+.vault-window-rail i {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 2px;
+}
+
+.vault-file-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: center;
+  gap: 0.7rem;
+  padding: 1rem;
+}
+
+.vault-file-grid span {
+  min-height: 5.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(135deg, rgba(53, 229, 140, 0.16), transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) 0.7rem calc(100% - 0.8rem) / 58% 0.3rem no-repeat,
+    rgba(255, 255, 255, 0.025);
+}
+
+.vault-door {
+  position: absolute;
+  right: 7%;
+  top: 8%;
+  z-index: 2;
+  display: grid;
+  width: 4rem;
+  height: 4rem;
+  place-items: center;
+  border: 1px solid rgba(141, 245, 189, 0.4);
+  border-radius: var(--radius-sm);
+  background: #131a16;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.vault-door > span {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--vault-emerald-soft);
+  border-radius: 50%;
+}
+
+.vault-door > span::before,
+.vault-door > span::after,
+.vault-door i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.28rem;
+  height: 1.3rem;
+  content: "";
+  background: var(--vault-emerald-soft);
+  transform: translate(-50%, -50%);
+}
+
+.vault-door > span::after {
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+
+.vault-door i {
+  transform: translate(-50%, -50%) rotate(120deg);
+}
+
+.vault-artwork-card {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  gap: 0.5rem;
+  width: 7.25rem;
+  min-height: 4rem;
+  border: 1px solid rgba(141, 245, 189, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem;
+  background: rgba(17, 23, 19, 0.92);
+  box-shadow: 0 15px 38px rgba(0, 0, 0, 0.4);
+}
+
+.vault-artwork-card span {
+  height: 0.32rem;
+  border-radius: 999px;
+  background: rgba(53, 229, 140, 0.62);
+}
+
+.vault-artwork-card i {
+  width: 64%;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.vault-artwork-card-one {
+  left: 5%;
+  bottom: 10%;
+}
+
+.vault-artwork-card-two {
+  right: 4%;
+  bottom: 18%;
+}
+
+.vault-overview-grid,
+.vault-why-layout,
+.vault-feature-grid,
+.vault-membership-grid,
+.vault-planned-grid,
+.vault-tech-grid,
+.vault-philosophy-grid {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.vault-overview-lead {
+  border-color: rgba(53, 229, 140, 0.34);
+  box-shadow: var(--shadow-card), 0 0 30px rgba(53, 229, 140, 0.07);
+}
+
+.vault-overview-grid .overview-statement > span,
+.vault-philosophy-grid .philosophy-statement > span,
+.vault-roadmap .roadmap-card > span {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: var(--vault-emerald-soft);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.vault-why-statement {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: clamp(1.35rem, 3vw, 2rem);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 48%),
+    var(--surface-card);
+}
+
+.vault-why-statement::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  content: "";
+  background: linear-gradient(90deg, rgba(53, 229, 140, 0.7), transparent);
+}
+
+.vault-why-statement > span,
+.vault-tech-card > span {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  color: var(--vault-emerald-soft);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.vault-why-statement h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.vault-why-statement p {
+  margin: 0.9rem 0 0;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.vault-feature-card,
+.vault-tech-card {
+  animation: fade-up 520ms var(--motion-ease) both;
+}
+
+.vault-page .vault-feature-card::before,
+.vault-page .vault-tech-card::before,
+.vault-page .roadmap-card::before {
+  background: linear-gradient(90deg, rgba(53, 229, 140, 0.7), transparent);
+}
+
+.vault-page .vault-feature-card:hover,
+.vault-page .vault-tech-card:hover {
+  border-color: rgba(53, 229, 140, 0.4);
+  box-shadow: 0 0 28px rgba(53, 229, 140, 0.08);
+}
+
+.vault-page .vault-feature-card > span {
+  color: var(--vault-emerald-soft);
+}
+
+.vault-membership-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.35rem;
+  background:
+    linear-gradient(160deg, rgba(53, 229, 140, 0.08), transparent 44%),
+    var(--surface-card);
+  box-shadow: var(--shadow-card);
+}
+
+.vault-membership-card > span {
+  color: var(--vault-emerald-soft);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.vault-membership-card > p:first-of-type {
+  margin: 1.2rem 0 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.vault-membership-card h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.vault-membership-card > div {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1.25rem 0;
+}
+
+.vault-membership-card > div i {
+  display: block;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.vault-membership-card > div i:nth-child(1) {
+  width: 88%;
+  background: rgba(53, 229, 140, 0.34);
+}
+
+.vault-membership-card > div i:nth-child(2) {
+  width: 66%;
+}
+
+.vault-membership-card > div i:nth-child(3) {
+  width: 74%;
+}
+
+.vault-membership-card strong {
+  color: var(--vault-emerald-soft);
+  font-size: 0.9rem;
+}
+
+.vault-membership-card > p:last-child {
+  margin: 0.85rem 0 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.vault-planned-card {
+  display: flex;
+  min-height: 4.75rem;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px dashed rgba(53, 229, 140, 0.22);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.022);
+}
+
+.vault-planned-card > span {
+  color: var(--vault-emerald-soft);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.vault-planned-card h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.vault-planned-card p {
+  margin: 0 0 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.vault-philosophy-grid .philosophy-statement {
+  min-height: 12rem;
+}
+
+.vault-roadmap .roadmap-card:first-child {
+  border-color: rgba(53, 229, 140, 0.36);
+  box-shadow: 0 0 28px rgba(53, 229, 140, 0.07);
+}
+
+.vault-page .roadmap-card li::before {
+  background: var(--vault-emerald);
+  box-shadow: 0 0 12px rgba(53, 229, 140, 0.3);
+}
+
+.vault-page .roadmap-card > p {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.vault-screenshot-device {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(53, 229, 140, 0.2);
+  background:
+    radial-gradient(circle at 50% 36%, rgba(53, 229, 140, 0.14), transparent 11rem),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    #0d120f;
+  background-size: auto, 42px 42px, 42px 42px, auto;
+}
+
+.vault-screenshot-image {
+  object-fit: contain;
+}
+
+.vault-screenshot-slot {
+  border-color: rgba(53, 229, 140, 0.28);
+}
+
+.vault-screenshot-slot span {
+  color: var(--vault-emerald-soft);
+}
+
+.vault-vision-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(53, 229, 140, 0.24);
+  border-radius: var(--radius-md);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background:
+    radial-gradient(circle at 76% 50%, rgba(53, 229, 140, 0.13), transparent 20rem),
+    var(--surface-card);
+  box-shadow: var(--shadow-card);
+}
+
+.vault-vision-panel > p {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0;
+  color: var(--text-primary);
+  font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+  line-height: 1.55;
+}
+
+.vault-vision-route {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  display: flex;
+  width: 26%;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.vault-vision-route::before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, rgba(53, 229, 140, 0.15), var(--vault-emerald));
+}
+
+.vault-vision-route span {
+  position: relative;
+  z-index: 1;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid var(--vault-emerald-soft);
+  border-radius: 50%;
+  background: #0d120f;
+  box-shadow: 0 0 14px rgba(53, 229, 140, 0.3);
+}
+
+.vault-final-cta {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(53, 229, 140, 0.15);
+  border-bottom: 1px solid rgba(53, 229, 140, 0.1);
+  background:
+    radial-gradient(circle at 50% 20%, rgba(53, 229, 140, 0.13), transparent 28rem),
+    #090d0b;
+}
+
+.vault-cta-inner {
+  display: grid;
+  max-width: 920px;
+  justify-items: center;
+  text-align: center;
+}
+
+.vault-cta-inner h2 {
+  max-width: 780px;
+  margin: 0.8rem 0 0;
+  color: var(--text-primary);
+  font-size: 2.7rem;
+  line-height: 1.05;
+}
+
+.vault-cta-inner > p:not(.eyebrow) {
+  max-width: 690px;
+  margin: 1.15rem 0 0;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.vault-cta-inner .product-hero-actions {
+  justify-content: center;
+}
+
+@media (min-width: 720px) {
+  .more-projects-layout h2 {
+    font-size: 3rem;
+  }
+
+  .more-project-item h3 {
+    font-size: 1.15rem;
+  }
+
+  .vault-overview-grid,
+  .vault-why-layout,
+  .vault-feature-grid,
+  .vault-planned-grid,
+  .vault-tech-grid,
+  .vault-philosophy-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vault-membership-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .more-projects-layout {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    align-items: start;
+    gap: 4rem;
+  }
+
+  .more-projects-layout h2 {
+    font-size: 3.5rem;
+  }
+
+  .vault-feature-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .vault-planned-grid,
+  .vault-philosophy-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .vault-tech-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .vault-cta-inner h2 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .more-project-item > i {
+    width: 2.5rem;
+  }
+
+  .vault-window {
+    width: 90%;
+    transform: none;
+  }
+
+  .vault-file-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vault-file-grid span:nth-child(n + 5) {
+    display: none;
+  }
+
+  .vault-artwork-card {
+    width: 5.4rem;
+  }
+
+  .vault-artwork-card-two {
+    display: none;
+  }
+
+  .vault-door {
+    right: 4%;
+    top: 5%;
+  }
+
+  .vault-vision-route {
+    display: none;
+  }
+
+  .vault-cta-inner h2 {
+    font-size: 2.35rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

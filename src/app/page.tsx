@@ -75,6 +75,16 @@ const selectedWork: SelectedWork[] = [
   },
 ];
 
+const moreProjects = [
+  { name: "PartyPlayer", category: "Interactive Party Games Platform" },
+  { name: "Stories by Eliza", category: "Story Writing & Reader Platform" },
+  {
+    name: "Untitled Barber & Stylist Platform",
+    category: "Business Tools for Barbers & Stylists",
+  },
+  { name: "And More to Come", category: "Future Apps & Web Experiences" },
+];
+
 const capabilities = [
   {
     title: "Mobile Applications",
@@ -454,6 +464,30 @@ export default function Home() {
                     ) : null}
                   </div>
                 </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="more-projects-section"
+          aria-labelledby="more-projects-heading"
+        >
+          <div className="container more-projects-layout">
+            <div>
+              <p className="eyebrow">Portfolio Outlook</p>
+              <h2 id="more-projects-heading">More Projects in Development</h2>
+            </div>
+            <div className="more-projects-list" role="list">
+              {moreProjects.map((project, index) => (
+                <div className="more-project-item" role="listitem" key={project.name}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3>{project.name}</h3>
+                    {project.category ? <p>{project.category}</p> : null}
+                  </div>
+                  <i aria-hidden="true" />
+                </div>
               ))}
             </div>
           </div>

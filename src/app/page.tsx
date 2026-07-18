@@ -56,19 +56,21 @@ const selectedWork: SelectedWork[] = [
     variant: "fit",
   },
   {
-    name: "To-Dos & Notes",
-    category: "Productivity",
+    name: "PJB Vault",
+    category: "Productivity & Cloud Storage",
     description:
-      "A mobile productivity experience that connects calendars, tasks, and notes in one organized workspace.",
-    status: "Mobile Application",
+      "A secure cloud storage platform for organizing, protecting, and sharing your photos, videos, and files across all your devices.",
+    status: "In Planning",
+    href: "/projects/pjb-vault",
     variant: "productivity",
   },
   {
     name: "AllSports GM",
-    category: "Sports and Entertainment",
+    category: "Sports Management Simulation",
     description:
-      "A multi-sport franchise management experience built around strategy, decision-making, and immersive simulation.",
-    status: "In Development",
+      "Build your own professional sports franchise and guide it from expansion team to dynasty through strategic management, fictional athletes, and long-term organizational growth.",
+    status: "Currently in Development",
+    href: "/projects/allsports-gm",
     variant: "sports",
   },
 ];
